@@ -1,8 +1,8 @@
 <?php
-// A real application should use them according to needs such as to check image type
+//Get the base-64 string from data
 $filteredData=substr($_POST['img_val'], strpos($_POST['img_val'], ",")+1);
 
-// Need to decode before saving since the data we received is already base64 encoded
+//Decode the string
 $unencodedData=base64_decode($filteredData);
 
 //Save the image
@@ -29,6 +29,7 @@ file_put_contents('img.png', $unencodedData);
 			</span>
             <br />
 <?php
+//Show the image
 echo '<img src="'.$_POST['img_val'].'" />';
 ?>
         </td>
